@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2012 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ChildVaccinate">
+  <!-- 接种视图映射 -->
+  <resultMap type="com.mywebsite.bean.VaccineView" id="InfoResult">
+    <id column="VACCINE" jdbcType="VARCHAR" property="vaccine"/>
+    <id column="C_IDNUM" jdbcType="VARCHAR" property="idnum"/>
+    <id column="VACCINE_TIMES" jdbcType="VARCHAR" property="vaccinetimes"/>
+    <result column="VACCINE_TIME"  jdbcType="DATE" property="vaccinetime"/>
+    <result column="VACCINE_NUM"  jdbcType="VARCHAR" property="vaccinenum"/>
+    <result column="APPOINT_TIME"  jdbcType="DATE" property="appointtime"/>
+    <result column="C_NAME"  jdbcType="VARCHAR" property="childname"/>
+    <result column="D_NAME"  jdbcType="VARCHAR" property="drelname"/>
+    <result column="C_AGE"  jdbcType="INTEGER" property="age"/>
+  </resultMap>
+  <!-- 幼儿信息映射 -->
+  <resultMap type="com.mywebsite.bean.ChildInfo" id="ChildInfoResult">
+    <id column="C_IDNUM" jdbcType="VARCHAR" property="idnum"/>
+    <result column="C_NAME"  jdbcType="VARCHAR" property="childname"/>
+    <result column="C_BIRTH"  jdbcType="DATE" property="childbirth"/>
+    <result column="U_ID"  jdbcType="VARCHAR" property="username"/>
+    <result column="C_GENDER"  jdbcType="VARCHAR" property="childgender"/>
+  </resultMap>
+   <!-- 异常反应 -->
+   <resultMap type="com.mywebsite.bean.ExceptionInfo" id="ExceptionInfoResult">
+    <id column="C_IDNUM" jdbcType="VARCHAR" property="idnum"/>
+    <result column="C_NAME" jdbcType="VARCHAR" property="childname"/>
+    <result column="VACCINE" jdbcType="VARCHAR" property="vaccine"/>
+    <result column="VACCINE_TIME"  jdbcType="DATE" property="vaccinatetime"/>
+    <result column="VACCINE_NUM"  jdbcType="VARCHAR" property="vaccinenum"/>
+    <result column="FACTORY"  jdbcType="VARCHAR" property="factory"/>
+    <result column="INDATE"  jdbcType="DATE" property="indate"/>
+    <result column="REACTION_TIME"  jdbcType="DATE" property="reaction"/>
+    <result column="SYMPTOM"  jdbcType="VARCHAR" property="symptom"/>
+  </resultMap>
+ <!-- 插入幼儿接种信息 -->
+  <insert id="addVaccinateinfo" parameterType="com.mywebsite.bean.ChildVaccinateInfo">
+   insert into vaccinate_info(VACCINE,VACCINE_TIMES,VACCINE_TIME,VACCINE_NUM,C_IDNUM,D_USERNAME,U_USERNAME,APPOINT_TIME,C_AGE) 
+       values(#{vaccine},#{vaccinetimes},#{vaccinetime},#{vaccinenum},#{idnum},#{dusername},#{username},#{appointtime},#{age})
+  </insert>
+  <!-- 查询幼儿接种信息 -->
+  <select id="selectVaccinateinfo" parameterType="String" resultMap="InfoResult">
+   select * from vaccineview where C_IDNUM=#{idnum} order by APPOINT_TIME
+  </select>
+  <!-- 查询用户所有幼儿信息 -->
+  <select id="selectChildInfo" parameterType="String" resultMap="ChildInfoResult">
+    select * from child_info where U_ID=#{username}
+  </select>
+  <select id="selectChildBirth" parameterType="String" resultType="java.sql.Date">
+    select C_BIRTH from child_info where C_IDNUM=#{idnum}
+  </select>
+  <!-- 查询幼儿基本信息 -->
+  <select id="selectChildinfo" parameterType="String" resultMap="ChildInfoResult">
+     select C_NAME,C_GENDER,C_BIRTH,C_IDNUM,U_ID from child_info where C_IDNUM=#{idnum}
+  </select>
+  <!-- 插入幼儿异常反应 -->
+  <insert id="insertExceptioninfo" parameterType="com.mywebsite.bean.ExceptionInfo">
+     insert into exception_info(C_NAME,C_IDNUM,VACCINE,FACTORY,VACCINE_NUM,INDATE,VACCINE_TIME,REACTION_TIME,SYMPTOM) 
+        values(#{childname},#{idnum},#{vaccine},#{factory},#{vaccinenum},#{indate},#{vaccinatetime},#{reaction},#{symptom})
+  </insert>
+  <!-- 查询幼儿异常反应 -->
+  <select id="selectExceptioninfo" parameterType="String" resultMap="ExceptionInfoResult">
+     select * from exception_info where C_IDNUM=#{idnum}
+  </select>
+  <!-- 查询幼儿身份证号 -->
+  <select id="selectChildidnum" parameterType="String"  resultMap="InfoResult">
+     select distinct C_IDNUM from vaccinate_info where D_USERNAME=#{dusername}
+  </select> 
+  <!-- 查询幼儿接种信息降序查询 -->
+  <select id="selectVaccinateInfo" parameterType="String" resultMap="InfoResult">
+   select VACCINE,VACCINE_TIMES,C_AGE from vaccineview where C_IDNUM=#{idnum} order by C_AGE desc
+  </select>
+  <!-- 查询幼儿最近一个月的接种信息 -->
+  <select id="SelectVaccinateinfo" parameterType="com.mywebsite.bean.ChildInfo" resultMap="InfoResult">
+   select VACCINE,VACCINE_TIMES,C_AGE from vaccineview where C_IDNUM=#{idnum} and C_AGE=#{age}
+  </select>
+</mapper>

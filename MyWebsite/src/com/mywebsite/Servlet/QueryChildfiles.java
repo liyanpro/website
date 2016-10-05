@@ -1,0 +1,49 @@
+package com.mywebsite.Servlet;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mywebsite.Service.QueryInfoService;
+import com.mywebsite.bean.ChildInfo;
+import com.mywebsite.bean.ExceptionInfo;
+import com.mywebsite.bean.VaccineView;
+@WebServlet("/QueryChildfiles")
+public class QueryChildfiles extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Constructor of the object.
+	 */
+	public QueryChildfiles() {
+		super();
+	}
+
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException
+	{
+		//…Ë÷√±‡¬Î       
+	       request.setCharacterEncoding("UTF-8");
+		   String idnum=request.getParameter("idnum");
+		   QueryInfoService queryInfoService=new QueryInfoService();
+		   ChildInfo childinfo=queryInfoService.queryChildInfo(idnum);
+		   List<VaccineView> vaccineinfolist=queryInfoService.queryVaccineinfo(idnum);
+		   List<ExceptionInfo> exceptionlist=queryInfoService.queryExceptionInfo(idnum);
+		   request.setAttribute("vaccineinfolist", vaccineinfolist);
+		   request.setAttribute("childinfo", childinfo);
+		   request.setAttribute("exceptionlist", exceptionlist);
+		   RequestDispatcher rd = request.getRequestDispatcher("showTwoChildfiles.jsp");
+		   rd.forward(request, response);   
+	}
+
+}

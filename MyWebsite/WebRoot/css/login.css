@@ -1,0 +1,61 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, table, th, td {
+	margin:0;
+	padding:0;
+}
+#header{
+	border-bottom: 5px solid rgba(10, 208, 250, 0.1);
+}
+ul, li {
+	list-style-type:none;
+}
+input, textarea {
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+}
+body {
+	background:rgb(255,255,255);
+	color: #333;
+	font: 12px 'ËÎÌו', Arial, Helvetica, sans-serif;
+}
+a {
+	color: #345292;
+	text-decoration:none;
+}
+a:hover {
+	color: #cc0000;
+	text-decoration:none;
+}
+.clear {
+	clear:both;
+}
+#logo {float:left;width:300px;height:83px;padding-top:15px;margin-left:0px;}
+
+.top_tool {float:right;width:300px;height:24px;line-height:24px;margin-top:55px;text-align:right;}
+.top_tool  a {padding:0px 5px;}
+.user_login_contant {
+     margin-top:5px;height:480px;background:url(../images/user/login_back.jpg) no-repeat center -2px;
+     position:relative;width:780px;
+}
+.doc_login_contant {
+     margin-top:5px;height:480px;background:url(../images/user/doc_login_back.png) no-repeat center -2px;
+     position:relative;width:780px;
+}
+.wrapper {
+	width:800px;
+	margin: 0px auto;
+	padding:0px;
+}
+#user_main {width:320px;position:absolute;
+	right:100px;display:inline;top:150px;}
+#user_main  li {height:27px;line-height:27px;font-size:14px;margin:8px 0px;}
+
+#user_main  li input {padding:3px 0px 3px 5px;height:25px;border:1px solid #8dd6f4;color:#0c99d3;width:146px;}
+#user_main  li.login {height:40px;line-height:38px;}
+#user_main  li.login input {width:73px;height:32px;margin-left:80px;padding:0px;margin-top:2px;background:rgba(138, 228, 64, 0.7);}
+#user_main  li.user_password input  {padding:5px 0px 1px 5px;}
+#user_main  li label {width:80px;height:30px;line-height:27px;text-align:right;float:left;font-family: Cursive;
+font-size: 17px;}
+.user_login_info {position:absolute;right:455px;width:350px;top:205px;height:31px;line-height:31px;font-family: Cursive;font-size:17px;}
+	
+.user_login_info a:hover {color:#333;}

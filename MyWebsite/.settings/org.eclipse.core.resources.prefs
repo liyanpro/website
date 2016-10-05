@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//WebRoot/DocPwdAlter.jsp=UTF-8
+encoding//WebRoot/UserPwdAlter.jsp=UTF-8
+encoding//WebRoot/WEB-INF/back/AddDoctor.jsp=UTF-8
+encoding//WebRoot/WEB-INF/back/DocManage.jsp=UTF-8
+encoding//WebRoot/css/reset.css=UTF-8
+encoding//WebRoot/js/jquery-ui-core.min.js=UTF-8
+encoding//WebRoot/js/util.min.js=UTF-8
+encoding//src/com/mywebsite/Servlet/DeleteDocInfo.java=UTF-8
+encoding//src/com/mywebsite/Servlet/QueryDocInfo.java=UTF-8

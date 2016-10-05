@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2012 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ManageInfo">
+
+   <resultMap type="com.mywebsite.bean.DocInfo" id="InfoResult">
+    <id column="D_USERNAME" jdbcType="VARCHAR" property="dusername"/>
+    <result column="D_NAME" jdbcType="VARCHAR" property="drelname"/>
+   <result column="D_GENDER" jdbcType="VARCHAR" property="dgender"/>
+   <result column="D_MOBILE" jdbcType="VARCHAR" property="dmobile"/>
+   <result column="D_MAJOR" jdbcType="VARCHAR" property="major"/> 
+  </resultMap>
+
+  <select id="QueryDocinfo" parameterType="com.mywebsite.bean.DocInfo" resultMap="InfoResult">
+   SELECT D_USERNAME,D_NAME,D_GENDER,D_MOBILE,D_MAJOR from doc_login where 1=1
+   <if test="dusername!=null and !&quot;&quot;.equals(dusername.trim())">
+       and D_USERNAME=#{dusername}
+   </if>
+   <if test="drelname!=null and !&quot;&quot;.equals(drelname.trim())">
+       and D_NAME like '%' #{drelname} '%'
+   </if>
+  </select>
+  <!-- 删除医生信息 -->
+  <delete id="DeleteDocinfo" parameterType="String">
+  delete  from doc_login where D_USERNAME=#{dusername}
+  </delete>
+  <!-- 添加医生信息 -->
+  <insert id="AddDocinfo" parameterType="com.mywebsite.bean.DocInfo" >
+    insert into doc_login(D_USERNAME,D_PASSWORD,D_NAME,D_GENDER,D_MOBILE,D_MAJOR) values(#{dusername},#{dpassword},#{drelname},#{dgender},#{dmobile},#{major})
+  </insert>
+  <!-- 修改医生信息 -->
+  <update id="alterDocinfo" parameterType="com.mywebsite.bean.DocInfo">
+    update doc_login set D_MOBILE=#{dmobile},D_MAJOR=#{major} where D_USERNAME=#{dusername}
+  </update>
+</mapper>

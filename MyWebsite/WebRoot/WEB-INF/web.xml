@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>websit.Login.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>websit.Register.Register</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DBServlet</servlet-name>
+    <servlet-class>websit.DB.DBServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ValidationCode</servlet-name>
+    <servlet-class>websit.ValidationCode.ValidationCode</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Encrypter</servlet-name>
+    <servlet-class>websit.ValidationCode.Encrypter</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Login_D</servlet-name>
+    <servlet-class>websit.Login.Login_D</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ViewDictionary</servlet-name>
+    <servlet-class>websit.ViewDictionary</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserRegister</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.UserRegister</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserInfoAlterServlet</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.UserInfoAlterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChildInfoAlter</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.ChildInfoAlter</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AppointInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.AppointInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DocShowAppoint</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.DocShowAppoint</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>VaccinateInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.VaccinateInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateVaccineInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.UpdateVaccineInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChildShowVaccination</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.ChildShowVaccination</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DocQueryVaccination</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.DocQueryVaccination</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>VaccinateDispose</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.VaccinateDispose</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DocInfoAlter</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.DocInfoAlter</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.AdminLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryDocInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.QueryDocInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddDoctorInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.AddDoctorInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteDocInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.DeleteDocInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AlterDoctorInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.AlterDoctorInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryChildfiles</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.QueryChildfiles</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ExceptionInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.ExceptionInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserPwdAlter</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.UserPwdAlter</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DocPwdAlter</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.DocPwdAlter</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MessageInfo</servlet-name>
+    <servlet-class>com.mywebsite.Servlet.MessageInfo</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/servlet/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/servlet/Register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DBServlet</servlet-name>
+    <url-pattern>/servlet/DBServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ValidationCode</servlet-name>
+    <url-pattern>/servlet/ValidationCode</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Encrypter</servlet-name>
+    <url-pattern>/servlet/Encrypter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Login_D</servlet-name>
+    <url-pattern>/servlet/Login_D</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ViewDictionary</servlet-name>
+    <url-pattern>/servlet/ViewDictionary</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserRegister</servlet-name>
+    <url-pattern>/servlet/UserRegister</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserInfoAlterServlet</servlet-name>
+    <url-pattern>/servlet/UserInfoAlterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChildInfoAlter</servlet-name>
+    <url-pattern>/servlet/ChildInfoAlter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AppointInfo</servlet-name>
+    <url-pattern>/servlet/AppointInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DocShowAppoint</servlet-name>
+    <url-pattern>/servlet/DocShowAppoint</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VaccinateInfo</servlet-name>
+    <url-pattern>/servlet/VaccinateInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateVaccineInfo</servlet-name>
+    <url-pattern>/servlet/UpdateVaccineInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChildShowVaccination</servlet-name>
+    <url-pattern>/servlet/ChildShowVaccination</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DocQueryVaccination</servlet-name>
+    <url-pattern>/servlet/DocQueryVaccination</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VaccinateDispose</servlet-name>
+    <url-pattern>/servlet/VaccinateDispose</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DocInfoAlter</servlet-name>
+    <url-pattern>/servlet/DocInfoAlter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/servlet/AdminLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryDocInfo</servlet-name>
+    <url-pattern>/servlet/QueryDocInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddDoctorInfo</servlet-name>
+    <url-pattern>/servlet/AddDoctorInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteDocInfo</servlet-name>
+    <url-pattern>/servlet/DeleteDocInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AlterDoctorInfo</servlet-name>
+    <url-pattern>/servlet/AlterDoctorInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryChildfiles</servlet-name>
+    <url-pattern>/servlet/QueryChildfiles</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExceptionInfo</servlet-name>
+    <url-pattern>/servlet/ExceptionInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserPwdAlter</servlet-name>
+    <url-pattern>/servlet/UserPwdAlter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DocPwdAlter</servlet-name>
+    <url-pattern>/servlet/DocPwdAlter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MessageInfo</servlet-name>
+    <url-pattern>/servlet/MessageInfo</url-pattern>
+  </servlet-mapping>
+</web-app>

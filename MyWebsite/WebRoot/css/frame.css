@@ -1,0 +1,188 @@
+/* frame begin */
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+html, body, label, table {
+    font-size: 12px;
+}
+.indexContainer table {
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    position: absolute;
+    float: left;
+    z-index: -1;
+    margin-top: 20px;
+}
+#mainFrame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #ededf0;
+    margin-top: -18px;
+}
+.frameBody {
+    width: 1030px;
+    background: rgba(27, 207, 237, 0);
+    width: 1030px;
+    height: 100%;
+    float: left;
+    margin-left: 180px;
+    margin-top: -4px;
+}
+.tableContainer {
+    height: auto;
+    margin: 20px 0 20px 20px;
+}
+.tablePanel {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    float: left;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #dfdfdf;
+    margin-bottom: 20px;
+    height: auto;
+    padding-top: 0;
+}
+.navInfo {
+    float: left;
+    text-align: left;
+    margin: 10px 22px 0 22px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 18px;
+    height: 55px;
+    line-height: 40px;
+    width: 96%;
+    color: #333;
+    
+}
+
+.navInfoDiv {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    font-size: 18px;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.row2{
+	width: 100%;
+   background: rgba(68, 209, 169, 0.23) none repeat scroll 0% 0%;
+    height: 40px;
+    border-bottom: 1px solid rgba(29, 121, 224, 0.5);
+}
+.row2 .Lable{
+	color: rgba(231, 35, 12, 0.9);
+    font-size: 19px;
+    text-align: left;
+    float: left;
+    margin-left: 22px;
+    margin-top: 8px;
+    font-family:Cursive;
+    
+}
+.tab th {
+    font-weight: normal;
+    height: 29px;
+    line-height: 29px;
+    background: #cee2fc;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ddd;
+}
+.clearfloat {
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0;
+}
+.editPanelQuery{
+	text-align: left;
+    width: 50%;
+    height: 50px;
+	 padding: 5px;
+    margin-left: 5px;
+}
+.editPanel {
+    text-align: left;
+    width: 120%;
+    height: auto;
+    padding: 5px;
+    margin-left: 5px;
+}
+.editPanel .row {
+    
+    height: auto;
+    line-height: 26px;
+    min-height: 26px;
+    max-height: none;
+    margin: 9px 0;
+}
+.editPanel .label {
+    float: left;
+    width: 80px;
+    text-align: left;
+    line-height: 22px;
+    height: 22px;
+    margin-left: 22px;
+    word-spacing: 9px;
+    font-size: 13px;
+}
+.editPanelQuery .label {
+    float: left;
+    width: 300px;
+    text-align: left;
+    line-height: 22px;
+    height: 30px;
+    margin-left: 22px;
+    margin-top:9px;
+    word-spacing: 9px;
+    font-size:20px;
+    color:black;
+    font-size: 13px;
+}
+.editPanelQuery .field {
+    float: left;
+    width: auto;
+    line-height: 22px;
+    text-align: left;
+    border: 0 solid #7f9db9;
+    margin:10px 20px;
+}
+.editPanel .field {
+    float: left;
+    width: auto;
+    line-height: 22px;
+    text-align: left;
+    border: 0 solid #7f9db9;
+}
+.editor {
+    font: normal 13px Verdana,Arial,Helvetica,sans-serif;
+    height: 22px;
+    line-height: 18px;
+    width: 200px;
+.editPanel .err {
+    float: left;
+    font-size: 12px;
+    color: #f00;
+    line-height: 24px;
+    background: url(/image/left-arrow-red.gif) no-repeat left center;
+    padding-left: 10px;
+    margin-left: 5px;
+}
+.button {
+    float: none;
+    text-decoration: none;
+}
+.clearfloat {
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0;
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2012 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ChildAppoint">
+   <!-- 幼儿预约信息表信息 -->
+  <resultMap type="com.mywebsite.bean.ChildAppointInfo" id="InfoResult">
+    <id column="U_USERNAME" jdbcType="VARCHAR" property="username"/>
+    <id column="D_USERNAME" jdbcType="VARCHAR" property="dusername"/>
+    <result column="VACCINE" jdbcType="VARCHAR" property="vaccine"/>
+    <result column="APPOINT_TIME" jdbcType="DATE" property="appointtime"/>
+    <result column="D_NAME" jdbcType="VARCHAR" property="drelname"/>
+    <result column="C_NAME" jdbcType="VARCHAR" property="childname"/>
+    <result column="C_IDNUM" jdbcType="VARCHAR" property="idnum"/>
+  </resultMap>
+  <!-- 用户预约视图信息 -->
+  <resultMap type="com.mywebsite.bean.UserAppointView" id="UserInfoResult">
+   <id column="U_USERNAME" jdbcType="VARCHAR" property="username"/>
+   <id column="D_USERNAME" jdbcType="VARCHAR" property="dusername"/>
+   <result column="C_NAME" jdbcType="VARCHAR" property="childname"/>
+   <result column="C_BIRTH" jdbcType="DATE" property="childbirth"/>
+   <result column="VACCINE" jdbcType="VARCHAR" property="vaccine"/>
+   <result column="APPOINT_TIME" jdbcType="DATE" property="appointtime"/>
+   <result column="D_NAME" jdbcType="VARCHAR" property="drelname"/>
+  </resultMap>
+  <!-- 医生预约视图信息 -->
+  <resultMap type="com.mywebsite.bean.DocAppointView" id="DocInfoResult">
+   <id column="D_USERNAME" jdbcType="VARCHAR" property="dusername"/>
+   <result column="C_NAME" jdbcType="VARCHAR" property="childname"/>
+   <result column="C_BIRTH" jdbcType="DATE" property="childbirth"/>
+   <result column="VACCINE" jdbcType="VARCHAR" property="vaccine"/>
+   <result column="APPOINT_TIME" jdbcType="DATE" property="appointtime"/>
+   <result column="U_MOBILE" jdbcType="VARCHAR" property="mobile"/>
+   <result column="C_IDNUM" jdbcType="VARCHAR" property="idnum"/>
+   <result column="U_NAME" jdbcType="VARCHAR" property="name"/>
+  </resultMap>
+  <!-- 幼儿相应年龄应该接种的疫苗及剂量 -->
+  <resultMap type="com.mywebsite.bean.VaccinateProdedure" id="VaccineResult">
+    <id column="VACCINE" jdbcType="VARCHAR" property="vaccine"/>
+    <id column="C_AGE" jdbcType="INTEGER" property="age"/>
+   <result column="VACCINE_TIMES" jdbcType="VARCHAR" property="vaccinetimes"/>
+  </resultMap>
+<!--  用户账号、幼儿身份证号和医生账号查询预约信息，用于检查用户是否已经预约过相关医生 -->
+  <select id="Queryappointinfo" parameterType="com.mywebsite.bean.ChildAppointInfo" resultMap="InfoResult">
+  select U_USERNAME,D_USERNAME,VACCINE,APPOINT_TIME,D_NAME,C_NAME,C_IDNUM from appoint_info where U_USERNAME=#{username} and D_USERNAME=#{dusername} and C_IDNUM=#{idnum}
+  </select>
+  <!-- 用户账号查询预约信息 -->
+  <select id="QueryAppointinfo" parameterType="String" resultMap="UserInfoResult">
+  select*from user_appointview where U_USERNAME=#{username}
+  </select>
+  <!-- 根据医生账号查询目标医生名下的所有用户预约信息 -->
+  <select id="QueryDocAppointinfo" parameterType="String" resultMap="DocInfoResult">
+    select* from doc_appointview where D_USERNAME=#{Dname}  order by APPOINT_TIME 
+  </select>
+   <!-- 插入幼儿预约信息 -->
+  <insert id="addAppointinfo" parameterType="com.mywebsite.bean.ChildAppointInfo">
+   insert into appoint_info(VACCINE,APPOINT_TIME,D_NAME,C_NAME,C_IDNUM,D_USERNAME,U_USERNAME) values(#{vaccine},#{appointtime},#{drelname},#{childname},#{idnum},#{dusername},#{username})
+  </insert>
+  <!-- 删除用户预约信息 -->
+  <delete id="deleteAppointinfo" parameterType="String">
+   delete from appoint_info where C_IDNUM=#{idnum}
+  </delete>
+  <!-- 查询当前月龄下的幼儿应该接种的疫苗名称 -->
+  <select id="queryVaccine" parameterType="int" resultMap="VaccineResult">
+     select  VACCINE,VACCINE_TIMES from vaccinate_prodedure where C_AGE &lt;=#{age} order by C_AGE desc
+  </select>
+</mapper>

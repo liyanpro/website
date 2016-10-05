@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2012 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserInfo">
+
+  <resultMap type="com.mywebsite.bean.UserInfo" id="LoginMessageResult">
+    <id column="U_USERNAME" jdbcType="VARCHAR" property="username"/>
+    <result column="U_PASSWORD" jdbcType="VARCHAR" property="password"/>
+    <result column="U_NAME" jdbcType="VARCHAR" property="name"/>
+    <result column="U_GENDER" jdbcType="VARCHAR" property="gender"/>
+    <result column="U_MOBILE" jdbcType="VARCHAR" property="mobile"/>
+    <result column="U_BIRTHPLACE" jdbcType="VARCHAR" property="birthplace"/>
+    <result column="U_HOMEPHONE" jdbcType="VARCHAR" property="homephone"/>
+    <result column="U_EMAIL" jdbcType="VARCHAR" property="email"/>
+  </resultMap>
+   <resultMap type="com.mywebsite.bean.DocInfo" id="LoginResult">
+    <id column="D_USERNAME" jdbcType="VARCHAR" property="dusername"/>
+    <result column="D_PASSWORD" jdbcType="VARCHAR" property="dpassword"/>
+    <result column="D_NAME" jdbcType="VARCHAR" property="drelname"/>
+   <result column="D_GENDER" jdbcType="VARCHAR" property="dgender"/>
+   <result column="D_MOBILE" jdbcType="VARCHAR" property="dmobile"/>
+   <result column="D_MAJOR" jdbcType="VARCHAR" property="major"/> 
+  </resultMap>
+<!-- 查询用户账号密码 -->
+  <select id="queryUserinfo" parameterType="String" resultMap="LoginMessageResult">
+    select U_USERNAME,U_PASSWORD,U_NAME,U_GENDER,U_MOBILE,U_BIRTHPLACE,U_HOMEPHONE,U_EMAIL from user_login where U_USERNAME=#{userName}
+  </select>
+  <!-- 根据幼儿身份证号查询用户账号 -->
+  <select id="queryUsername" parameterType="String" resultType="String">
+    select U_ID from child_info where C_IDNUM=#{idnum}
+  </select>
+  <!-- 查询社区医生账号密码 -->
+   <select id="queryDocinfo" parameterType="String" resultMap="LoginResult">
+    select D_USERNAME,D_PASSWORD,D_NAME,D_GENDER,D_MOBILE,D_MAJOR from doc_login where D_USERNAME=#{DName}
+  </select>
+  <!-- 查询医生信息 -->
+    <select id="QueryDocinfo"  resultMap="LoginResult">
+      select D_USERNAME,D_NAME,D_GENDER,D_MOBILE,D_MAJOR from doc_login where 1=1
+    </select>
+  <!-- 添加用户 -->
+  <insert id="addUserinfo" parameterType="com.mywebsite.bean.UserInfo">
+  insert into user_login(U_USERNAME,U_PASSWORD,U_EMAIL,U_NAME,U_GENDER,U_MOBILE,U_HOMEPHONE,U_BIRTHPLACE) values(#{username},#{password},#{email},#{name},#{gender},#{mobile},#{homephone},#{birthplace})
+  </insert>
+  <!-- 添加幼儿基本信息 -->
+  <insert id="addChildinfo" parameterType="com.mywebsite.bean.ChildInfo">
+   insert into child_info(C_NAME,C_GENDER,C_BIRTH,C_IDNUM,U_ID) values(#{childname},#{childgender},#{childbirth},#{idnum},#{username})
+  </insert>
+  <!-- 更新幼儿基本信息 -->
+  <update id="updateChildinfo" parameterType="com.mywebsite.bean.ChildInfo">
+  update child_info set C_NAME=#{childname},C_GENDER=#{childgender},C_BIRTH=#{childbirth},C_IDNUM=#{idnum} where U_ID=#{username} and C_IDNUM=#{idnum}
+  </update>
+  <!-- 更新用户基本信息 -->
+  <update id="alterUserinfo" parameterType="com.mywebsite.bean.UserInfo">
+    update user_login set U_MOBILE=#{mobile},U_BIRTHPLACE=#{birthplace}, U_HOMEPHONE=#{homephone},U_EMAIL=#{email} where U_USERNAME=#{username}
+  </update>
+  <!-- 更新医生基本信息 -->
+  <update id="alterDocinfo" parameterType="com.mywebsite.bean.DocInfo">
+    update doc_login set D_MOBILE=#{dmobile} where D_USERNAME=#{dusername}
+  </update>
+  <select id="querypassword" parameterType="String" resultType="String">
+     select SUPERPASSWORD from admin_info where SUPERUSER=#{adname}
+  </select> 
+  <!-- 修改用户密码 -->
+  <update id="alterUserPwd" parameterType="com.mywebsite.bean.AlterPwd">
+     update user_login set U_PASSWORD=#{userPwd} where U_USERNAME=#{username}
+  </update>
+  <!-- 修改医生密码 -->
+  <update id="alterDocPwd" parameterType="com.mywebsite.bean.AlterPwd">
+     update doc_login set D_PASSWORD=#{docPwd} where D_USERNAME=#{dusername}
+  </update>
+</mapper>
