@@ -1,0 +1,3 @@
+INSERT INTO `user_login` (`U_USERNAME`, `U_PASSWORD`, `U_NAME`, `U_GENDER`, `U_MOBILE`, `U_BIRTHPLACE`, `U_HOMEPHONE`, `U_EMAIL`) VALUES ('liyan', 'ICy5YqxZB1uWSwcVLSNLcA==', '赵仲雅', '女', '18004024035', '陕西宝鸡', '0917-8004001', 'liyansuper@outlook.com');
+INSERT INTO `user_login` (`U_USERNAME`, `U_PASSWORD`, `U_NAME`, `U_GENDER`, `U_MOBILE`, `U_BIRTHPLACE`, `U_HOMEPHONE`, `U_EMAIL`) VALUES ('杰森伯恩', 'ICy5YqxZB1uWSwcVLSNLcA==', '屋宇署', '男', '18004023008', '中国-西安', '029-8735106', 'liyan873331360@163.com');
+INSERT INTO `user_login` (`U_USERNAME`, `U_PASSWORD`, `U_NAME`, `U_GENDER`, `U_MOBILE`, `U_BIRTHPLACE`, `U_HOMEPHONE`, `U_EMAIL`) VALUES ('雨枫', 'gdyb21LQTcIANtvYMT7QVQ==', '张若晨', '男', '18004024035', '辽宁沈阳', '029-8734126', 'liyansuper@outlook.com');

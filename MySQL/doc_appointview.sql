@@ -1,0 +1,1 @@
+INSERT INTO `doc_appointview` (`VACCINE`, `APPOINT_TIME`, `C_NAME`, `C_IDNUM`, `U_NAME`, `U_MOBILE`, `D_USERNAME`, `C_BIRTH`) VALUES ('乙肝疫苗', '2016-6-9', '沈若曦', '610320201601018888', '屋宇署', '18004023008', '1001', '2016-6-1');
